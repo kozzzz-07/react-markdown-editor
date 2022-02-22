@@ -34,6 +34,7 @@ const StyledSidePageComponent = styled(SidePageComponent)`
   & > .sideList {
     flex: 1;
     padding: 8px;
+    overflow: scroll;
   }
 `;
 

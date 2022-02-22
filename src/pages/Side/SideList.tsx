@@ -24,6 +24,55 @@ const items: Posted[] = [
     createdAt: new Date().toLocaleTimeString(),
     updatedAt: new Date().toLocaleTimeString(),
   },
+  {
+    id: "csas",
+    title: "title3",
+    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
+    createdAt: new Date().toLocaleTimeString(),
+    updatedAt: new Date().toLocaleTimeString(),
+  },
+  {
+    id: "cas3",
+    title: "title3",
+    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
+    createdAt: new Date().toLocaleTimeString(),
+    updatedAt: new Date().toLocaleTimeString(),
+  },
+  {
+    id: "cas2",
+    title: "title3",
+    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
+    createdAt: new Date().toLocaleTimeString(),
+    updatedAt: new Date().toLocaleTimeString(),
+  },
+  {
+    id: "ca3s",
+    title: "title3",
+    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
+    createdAt: new Date().toLocaleTimeString(),
+    updatedAt: new Date().toLocaleTimeString(),
+  },
+  {
+    id: "ca3rs",
+    title: "title3",
+    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
+    createdAt: new Date().toLocaleTimeString(),
+    updatedAt: new Date().toLocaleTimeString(),
+  },
+  {
+    id: "ca3rews",
+    title: "title3",
+    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
+    createdAt: new Date().toLocaleTimeString(),
+    updatedAt: new Date().toLocaleTimeString(),
+  },
+  {
+    id: "caewew3rs",
+    title: "title3",
+    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
+    createdAt: new Date().toLocaleTimeString(),
+    updatedAt: new Date().toLocaleTimeString(),
+  },
 ];
 
 type SideListComponentProps = PropsWithChildren<{
