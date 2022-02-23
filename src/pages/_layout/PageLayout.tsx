@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { SidePageLayout } from "../Side/SidePage";
+import { SidePage } from "../Side/SidePage";
 import { Card } from "./Card";
 
 type PageComponentProps = PropsWithChildren<{
@@ -12,7 +12,7 @@ const PageComponent: FC<PageComponentProps> = (props) => (
   <div className={props.className}>
     <Card className="card">
       <div className="side">
-        <SidePageLayout />
+        <SidePage />
       </div>
       <main className="content">
         <Outlet />

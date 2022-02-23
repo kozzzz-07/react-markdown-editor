@@ -5,8 +5,8 @@ export type Post = {
   title: string;
   createdAt: string;
   updatedAt: string;
-  detail: string;
-  detailHtml: string;
+  // detail: string;
+  markdown: string;
 };
 
 export type Posted = {
