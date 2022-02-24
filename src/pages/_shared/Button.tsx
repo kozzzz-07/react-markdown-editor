@@ -1,5 +1,19 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 
-export const Button: FC = (props) => {
-  return <button>{props.children}</button>;
+type ButtonComponentProps = {
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+};
+
+export const Button: FC<ButtonComponentProps> = ({
+  onClick,
+  disabled = false,
+  children,
+  ...props
+}) => {
+  return (
+    <button onClick={onClick} disabled={disabled} {...props}>
+      {children}
+    </button>
+  );
 };

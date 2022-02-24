@@ -15,4 +15,5 @@ export type Posted = {
   excerpt: string;
   createdAt: string;
   updatedAt?: string;
+  markdown: string; // 一旦
 };

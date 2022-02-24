@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { Widget } from "./widget/Widget";
+import { Widget } from "./Widget";
 
 type ArticlePageComponentProps = PropsWithChildren<{
   className?: string;

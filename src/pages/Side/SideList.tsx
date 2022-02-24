@@ -1,79 +1,9 @@
 import { FC, PropsWithChildren } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Posted } from "../../models/article";
 import { SideItem } from "./SideItem";
 
-const items: Posted[] = [
-  {
-    id: "a",
-    title: "title",
-    excerpt: "excerpt",
-    createdAt: new Date().toLocaleTimeString(),
-    updatedAt: new Date().toLocaleTimeString(),
-  },
-  {
-    id: "2",
-    title: "title2",
-    excerpt: "excerpt2",
-    createdAt: new Date().toLocaleTimeString(),
-  },
-  {
-    id: "cas",
-    title: "title3",
-    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
-    createdAt: new Date().toLocaleTimeString(),
-    updatedAt: new Date().toLocaleTimeString(),
-  },
-  {
-    id: "csas",
-    title: "title3",
-    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
-    createdAt: new Date().toLocaleTimeString(),
-    updatedAt: new Date().toLocaleTimeString(),
-  },
-  {
-    id: "cas3",
-    title: "title3",
-    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
-    createdAt: new Date().toLocaleTimeString(),
-    updatedAt: new Date().toLocaleTimeString(),
-  },
-  {
-    id: "cas2",
-    title: "title3",
-    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
-    createdAt: new Date().toLocaleTimeString(),
-    updatedAt: new Date().toLocaleTimeString(),
-  },
-  {
-    id: "ca3s",
-    title: "title3",
-    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
-    createdAt: new Date().toLocaleTimeString(),
-    updatedAt: new Date().toLocaleTimeString(),
-  },
-  {
-    id: "ca3rs",
-    title: "title3",
-    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
-    createdAt: new Date().toLocaleTimeString(),
-    updatedAt: new Date().toLocaleTimeString(),
-  },
-  {
-    id: "ca3rews",
-    title: "title3",
-    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
-    createdAt: new Date().toLocaleTimeString(),
-    updatedAt: new Date().toLocaleTimeString(),
-  },
-  {
-    id: "caewew3rs",
-    title: "title3",
-    excerpt: "excerptexcerptexcerptexcerptexcerpt3",
-    createdAt: new Date().toLocaleTimeString(),
-    updatedAt: new Date().toLocaleTimeString(),
-  },
-];
+import { items } from "../../mock/data/posted";
 
 type SideListComponentProps = PropsWithChildren<{
   className?: string;
@@ -84,7 +14,9 @@ export const SideListComponent: FC<SideListComponentProps> = (props) => {
     <div className={props.className}>
       {items.map((item) => (
         <div className="item-wrapper" key={item.id}>
-          <SideItem posted={item} />
+          <Link to={`/articles/${item.id}`}>
+            <SideItem posted={item} />
+          </Link>
         </div>
       ))}
     </div>
@@ -92,8 +24,14 @@ export const SideListComponent: FC<SideListComponentProps> = (props) => {
 };
 
 const StyledSideListComponent = styled(SideListComponent)`
-  .item-wrapper:not(:first-child) {
+  & > .item-wrapper:not(:first-child) {
     border-top: 1px solid gray;
+  }
+
+  /* a tag スタイル打ち消し */
+  & > .item-wrapper > a {
+    text-decoration: none;
+    color: inherit;
   }
 `;
 

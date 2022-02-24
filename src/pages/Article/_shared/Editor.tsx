@@ -8,14 +8,13 @@ type EditorComponentProps = {
 };
 
 export const Editor: FC<EditorComponentProps> = (props) => {
-  const { title, markdown } = props;
+  const { title = "", markdown = "" } = props;
 
   return (
     <StyledEditor>
-      <StyledTitle type="text" name="" id="" placeholder="Title" />
+      <StyledTitle type="text" defaultValue={title} placeholder="Title" />
       <StyledMarkdown
-        name=""
-        id=""
+        defaultValue={markdown}
         placeholder="Write in Markdown"
       ></StyledMarkdown>
     </StyledEditor>
