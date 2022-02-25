@@ -1,11 +1,11 @@
 import { FC } from "react";
 import styled from "styled-components";
 import { Markdown2Html } from "../../../lib/Markdown2Html";
-import { Post } from "../../../models/article";
+import { Article } from "../../../models/article";
 
 type ViewerComponentProps = {
-  title: Post["title"];
-  markdown: Post["markdown"];
+  title: Article["title"];
+  markdown: Article["markdown"];
 };
 
 export const Viewer: FC<ViewerComponentProps> = (props) => {

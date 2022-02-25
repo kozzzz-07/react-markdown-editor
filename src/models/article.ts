@@ -1,19 +1,28 @@
-export type PostId = string;
+export type ArticleId = string;
 
-export type Post = {
-  id?: PostId;
+export type Article = {
+  id?: ArticleId;
   title: string;
+  excerpt?: string;
+  detail?: string;
   createdAt: string;
-  updatedAt: string;
-  // detail: string;
+  updatedAt?: string;
   markdown: string;
 };
 
-export type Posted = {
-  id: PostId;
+// 整理したい
+export type NewArticle = {
+  id: ArticleId;
   title: string;
-  excerpt: string;
+  excerpt?: string;
+  detail?: string;
   createdAt: string;
   updatedAt?: string;
-  markdown: string; // 一旦
+  markdown: string;
 };
+
+// markdown だけのモデルで用意するのも良さそう
+// export type PostedMarkdown = {
+//   id: PostId;
+//   markdown: string;
+// };

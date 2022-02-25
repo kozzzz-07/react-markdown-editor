@@ -15,7 +15,7 @@ export const SideListComponent: FC<SideListComponentProps> = (props) => {
       {items.map((item) => (
         <div className="item-wrapper" key={item.id}>
           <Link to={`/articles/${item.id}`}>
-            <SideItem posted={item} />
+            <SideItem article={item} />
           </Link>
         </div>
       ))}

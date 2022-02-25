@@ -1,18 +1,18 @@
 import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
-import { Posted } from "../../models/article";
+import { Article } from "../../models/article";
 
 type ItemProps = {
-  posted: Posted;
+  article: Article;
 };
 
 type SideItemComponentProps = PropsWithChildren<{
   className?: string;
-  posted: Posted;
+  article: Article;
 }>;
 
 export const SideItemComponent: FC<SideItemComponentProps> = (props) => {
-  const { title, excerpt, createdAt, updatedAt } = props.posted;
+  const { title, excerpt, createdAt, updatedAt } = props.article;
 
   return (
     <div className={props.className}>

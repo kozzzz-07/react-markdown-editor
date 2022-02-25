@@ -1,3 +1,4 @@
-import { PostId } from "../../models/article";
+import { ArticleId } from "../../models/article";
 
-export const generateId: () => PostId = () => new Date().getTime().toString(36);
+export const generateId: () => ArticleId = () =>
+  new Date().getTime().toString(36);

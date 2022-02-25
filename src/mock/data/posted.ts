@@ -1,7 +1,7 @@
-import { Posted } from "../../models/article";
+import { Article } from "../../models/article";
 import { markdown } from "./markdown";
 
-export const items: Posted[] = [
+export const items: Article[] = [
   {
     id: "a",
     title: "title",

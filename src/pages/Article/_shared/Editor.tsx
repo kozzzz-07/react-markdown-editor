@@ -1,10 +1,10 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { Post } from "../../../models/article";
+import { Article } from "../../../models/article";
 
 type EditorComponentProps = {
-  title?: Post["title"];
-  markdown?: Post["markdown"];
+  title?: Article["title"];
+  markdown?: Article["markdown"];
 };
 
 export const Editor: FC<EditorComponentProps> = (props) => {
