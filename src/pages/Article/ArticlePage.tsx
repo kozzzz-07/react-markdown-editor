@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import { Widget } from "./Widget";
+import { Navigator } from "./Navigator";
 
 type ArticlePageComponentProps = PropsWithChildren<{
   className?: string;
@@ -13,8 +13,8 @@ const ArticlePageComponent: FC<ArticlePageComponentProps> = (props) => {
       <div className="markdown">
         <Outlet />
       </div>
-      <div className="widgets">
-        <Widget />
+      <div className="navigator">
+        <Navigator />
       </div>
     </div>
   );
@@ -31,7 +31,7 @@ const StyledArticlePageComponent = styled(ArticlePageComponent)`
     flex: 1;
   }
 
-  & > .widgets {
+  & > .navigator {
     position: sticky;
     top: 0;
   }

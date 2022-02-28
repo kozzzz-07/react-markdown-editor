@@ -30,8 +30,6 @@ const StyledSlidableComponent = styled(SlidableComponent)`
     width: 200%;
     height: 100%;
 
-    transition: 5s ease-in-out;
-
     /* スライドイン/スライドアウトの調整用要素 */
     & > .adjuster {
       position: relative;
@@ -66,11 +64,11 @@ const StyledSlidableComponent = styled(SlidableComponent)`
   }
 
   .slide-in {
-    animation: SlideIn_SlideOut 0.4s ease-in forwards;
+    animation: SlideIn_SlideOut 0.5s ease-in forwards;
   }
 
   .slide-out {
-    animation: SlideIn_SlideOut 0.4s ease-in;
+    animation: SlideIn_SlideOut 0.5s ease-in;
     animation-direction: reverse;
   }
 `;
@@ -85,4 +83,4 @@ export type SlidableProps = PropsWithChildren<{
   slideDirection: SlideDirection;
 }>;
 
-type SlideDirection = "slide-in" | "slide-out" | "";
+export type SlideDirection = "slide-in" | "slide-out" | "";
