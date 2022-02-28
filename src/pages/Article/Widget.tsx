@@ -15,11 +15,10 @@ export const Widget: FC = (props) => {
   }, [id]);
 
   // TODO: postしたものがあるかどうかで判定する
+  // children を受け取って、渡した側である程度制御できるようにする？
   return id ? (
     <StyledWidget>
-      <Button onClick={onPreview}>プレビュー</Button>
       <Button onClick={onEdit}>編集</Button>
-      {/* <Button>投稿</Button> */}
     </StyledWidget>
   ) : null;
 };
