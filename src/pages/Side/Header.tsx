@@ -14,7 +14,7 @@ export const Header: FC = (props) => {
   return (
     <div>
       <Button onClick={onAdd}>追加</Button>
-      <Button>削除</Button>
+      {/* <Button>削除</Button> */}
     </div>
   );
 };

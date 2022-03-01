@@ -1,13 +1,20 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { items } from "../../mock/data/posted";
+import { useArticleState } from "../../states/articleState";
+import { useEditorState } from "./hooks/useEditorState";
 import { Viewer } from "./_shared/Viewer";
 
-export const View: FC = (props) => {
-  const { id } = useParams<"id">();
-  const posted = items.find((item) => item.id === id);
+export const View: FC = () => {
+  const params = useParams<"id">();
+  const articles = useArticleState();
+  const { title, markdown, setTitle, setMarkdown } = useEditorState();
 
-  return posted ? (
-    <Viewer title={posted.title} markdown={posted.markdown} />
-  ) : null;
+  useEffect(() => {
+    const article = articles.find((a) => a.id === params.id);
+
+    setTitle(article?.title);
+    setMarkdown(article?.markdown);
+  }, [params.id]);
+
+  return <Viewer title={title} markdown={markdown} />;
 };

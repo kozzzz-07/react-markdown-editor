@@ -12,9 +12,9 @@ export const Navigator: FC = () => {
   const { id } = useParams<"id">();
   const navigate = useNavigate();
 
-  const onPreview = useCallback(() => {
-    navigate(`/articles/${id}`);
-  }, [id]);
+  // const onPreview = useCallback(() => {
+  //   navigate(`/articles/${id}`);
+  // }, [id]);
   const onEdit = useCallback(() => {
     navigate(`/articles/${id}/edit`);
   }, [id]);
@@ -24,7 +24,7 @@ export const Navigator: FC = () => {
   return id ? (
     <StyledNavigator>
       <Button onClick={onEdit}>編集</Button>
-      <Button onClick={onPreview}>戻る</Button>
+      {/* <Button onClick={onPreview}>戻る</Button> */}
     </StyledNavigator>
   ) : null;
 };
