@@ -7,7 +7,7 @@ export type Article = {
   detail?: string;
   createdAt?: string;
   updatedAt?: string;
-  markdown: string;
+  markdown?: string;
 };
 
 // 整理したい

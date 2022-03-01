@@ -1,13 +1,8 @@
 import { FC, PropsWithChildren, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { ToggleSwitch } from "../_shared/ToggleSwitch";
 import { useEditorState } from "./hooks/useEditorState";
 import { useArticleMutations } from "./hooks/useArticleMutations";
-import { useSlideDirection } from "./hooks/useSlideDirection";
-import { PreView } from "./PreView";
-import { Editor } from "./_shared/Editor";
-import { Slidable } from "./_shared/Slidable";
 import { MarkdownEditor } from "./_shared/MarkdownEditor";
 
 type AddComponentProps = PropsWithChildren<{
@@ -25,14 +20,14 @@ const AddComponent: FC<AddComponentProps> = (props) => {
     post({
       id: params.id!,
       markdown: "",
-      title: "No Title.",
+      title: "",
     });
   }, [params.id]);
 
   useEffect(() => {
     update({
       id: params.id!,
-      title: title || "No Title.",
+      title,
       markdown,
     });
   }, [title, markdown]);

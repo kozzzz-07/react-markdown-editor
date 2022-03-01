@@ -18,6 +18,8 @@ export const useEditorState = () => {
   return {
     title,
     markdown,
+    setTitle,
+    setMarkdown,
     handleTitleChange,
     handleMarkdownChange,
   };
