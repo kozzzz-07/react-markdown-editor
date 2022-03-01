@@ -16,7 +16,7 @@ export const SideItemComponent: FC<SideItemComponentProps> = (props) => {
 
   return (
     <div className={props.className}>
-      <div className="title">{title}</div>
+      <div className="title">{title || "No Title."}</div>
       <div className="date">{updatedAt || createdAt}</div>
       <div className="excerpt">{excerpt}</div>
     </div>
@@ -51,8 +51,8 @@ const StyledSideItemComponent = styled(SideItemComponent)`
   }
 `;
 
-export const SideItem: FC<SideItemProps> = (props) => {
-  return <StyledSideItemComponent {...props} />;
-};
+export const SideItem: FC<SideItemProps> = (props) => (
+  <StyledSideItemComponent {...props} />
+);
 
 export type SideItemProps = PropsWithChildren<ItemProps>;

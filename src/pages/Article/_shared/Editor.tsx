@@ -1,22 +1,40 @@
-import { FC } from "react";
+import { ChangeEvent, FC } from "react";
 import styled from "styled-components";
 import { Article } from "../../../models/article";
+
+export type HandleTitleChange = (event: ChangeEvent<HTMLInputElement>) => void;
+export type HandleMarkdownChange = (
+  event: ChangeEvent<HTMLTextAreaElement>
+) => void;
 
 type EditorComponentProps = {
   title?: Article["title"];
   markdown?: Article["markdown"];
+  handleTitleChange?: HandleTitleChange;
+  handleMarkdownChange?: HandleMarkdownChange;
 };
 
 export const Editor: FC<EditorComponentProps> = (props) => {
-  const { title = "", markdown = "" } = props;
+  const {
+    title = "",
+    markdown = "",
+    handleTitleChange = () => {},
+    handleMarkdownChange = () => {},
+  } = props;
 
   return (
     <StyledEditor>
-      <StyledTitle type="text" defaultValue={title} placeholder="Title" />
+      <StyledTitle
+        type="text"
+        defaultValue={title}
+        placeholder="Title"
+        onChange={handleTitleChange}
+      />
       <StyledMarkdown
         defaultValue={markdown}
         placeholder="Write in Markdown"
-      ></StyledMarkdown>
+        onChange={handleMarkdownChange}
+      />
     </StyledEditor>
   );
 };

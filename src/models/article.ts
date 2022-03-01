@@ -2,18 +2,18 @@ export type ArticleId = string;
 
 export type Article = {
   id?: ArticleId;
-  title: string;
+  title?: string;
   excerpt?: string;
   detail?: string;
-  createdAt: string;
+  createdAt?: string;
   updatedAt?: string;
-  markdown: string;
+  markdown?: string;
 };
 
 // 整理したい
 export type NewArticle = {
   id: ArticleId;
-  title: string;
+  title?: string;
   excerpt?: string;
   detail?: string;
   createdAt: string;

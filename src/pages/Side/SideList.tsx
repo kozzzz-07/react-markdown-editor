@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { SideItem } from "./SideItem";
 
-import { items } from "../../mock/data/posted";
+import { useArticleState } from "../../states/articleState";
 
 type SideListComponentProps = PropsWithChildren<{
   className?: string;
 }>;
 
 export const SideListComponent: FC<SideListComponentProps> = (props) => {
+  const articles = useArticleState();
+
   return (
     <div className={props.className}>
-      {items.map((item) => (
+      {articles.map((item) => (
         <div className="item-wrapper" key={item.id}>
           <Link to={`/articles/${item.id}`}>
             <SideItem article={item} />
@@ -35,8 +37,6 @@ const StyledSideListComponent = styled(SideListComponent)`
   }
 `;
 
-export const SideList: FC<SideListProps> = (props) => {
-  return <StyledSideListComponent {...props} />;
-};
+export const SideList: FC<SideListProps> = (props) => <StyledSideListComponent {...props} />;
 
 export type SideListProps = PropsWithChildren<unknown>;

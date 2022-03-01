@@ -1,11 +1,62 @@
-import { FC } from "react";
+import { FC, PropsWithChildren, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { items } from "../../mock/data/posted";
-import { Editor } from "./_shared/Editor";
+import styled from "styled-components";
+import { useEditorState } from "./hooks/useEditorState";
+import { useArticleMutations } from "./hooks/useArticleMutations";
+import { MarkdownEditor } from "./_shared/MarkdownEditor";
+import { useArticleState } from "../../states/articleState";
 
-export const Edit: FC = (props) => {
-  const { id } = useParams<"id">();
-  const { title, markdown } = items.find((item) => item.id === id)!;
+type EditComponentProps = PropsWithChildren<{
+  className: string;
+}>;
 
-  return <Editor title={title} markdown={markdown} />;
+const EditComponent: FC<EditComponentProps> = (props) => {
+  const {
+    title,
+    markdown,
+    setTitle,
+    setMarkdown,
+    handleTitleChange,
+    handleMarkdownChange,
+  } = useEditorState();
+
+  const params = useParams<"id">();
+  const { update } = useArticleMutations();
+  const articles = useArticleState();
+
+  useEffect(() => {
+    const article = articles.find((a) => a.id === params.id);
+
+    setTitle(article?.title);
+    setMarkdown(article?.markdown);
+  }, [params.id]);
+
+  useEffect(() => {
+    update({
+      id: params.id!,
+      title,
+      markdown,
+    });
+  }, [title, markdown]);
+
+  return (
+    <div className={props.className}>
+      <MarkdownEditor
+        title={title}
+        markdown={markdown}
+        handleTitleChange={handleTitleChange}
+        handleMarkdownChange={handleMarkdownChange}
+      />
+    </div>
+  );
 };
+
+const StyledEditComponent = styled(EditComponent)`
+  height: 100%;
+`;
+
+export const Edit: FC<EditProps> = (props) => (
+  <StyledEditComponent {...props} />
+);
+
+export type EditProps = PropsWithChildren<unknown>;

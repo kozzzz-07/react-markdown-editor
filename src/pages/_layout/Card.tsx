@@ -22,6 +22,4 @@ export type CardProps = PropsWithChildren<{
   className?: string;
 }>;
 
-export const Card: FC<CardProps> = (props) => {
-  return <StyledCardComponent {...props} />;
-};
+export const Card: FC<CardProps> = (props) => <StyledCardComponent {...props} />;

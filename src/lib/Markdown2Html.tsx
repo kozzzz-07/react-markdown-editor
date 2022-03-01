@@ -15,7 +15,9 @@ export const Markdown2Html: FC<Markdown2HtmlComponentProps> = (props) => {
       children={markdown}
       remarkPlugins={[remarkGfm]}
       components={{
-        code({ node, inline, className, children, ...props }) {
+        code({
+          node, inline, className, children, ...props
+        }) {
           const match = /language-(\w+)/.exec(className || "");
           return !inline && match ? (
             <SyntaxHighlighter

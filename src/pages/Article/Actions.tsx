@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../_shared/Button";
 
-export const Widget: FC = (props) => {
+export const Actions: FC = (props) => {
   const { id } = useParams<"id">();
   const navigate = useNavigate();
 
@@ -15,16 +15,16 @@ export const Widget: FC = (props) => {
   }, [id]);
 
   // TODO: postしたものがあるかどうかで判定する
+  // children を受け取って、渡した側である程度制御できるようにする？
   return id ? (
-    <StyledWidget>
-      <Button onClick={onPreview}>プレビュー</Button>
-      <Button onClick={onEdit}>編集</Button>
-      {/* <Button>投稿</Button> */}
-    </StyledWidget>
+    <StyledNavigator>
+      <Button onClick={onEdit}>プレビュー</Button>
+      <Button onClick={onPreview}>編集</Button>
+    </StyledNavigator>
   ) : null;
 };
 
-const StyledWidget = styled.div`
+const StyledNavigator = styled.div`
   display: flex;
   flex-direction: column;
 `;

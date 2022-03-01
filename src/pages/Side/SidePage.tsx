@@ -7,18 +7,16 @@ type SidePageComponentProps = PropsWithChildren<{
   className?: string;
 }>;
 
-const SidePageComponent: FC<SidePageComponentProps> = (props) => {
-  return (
-    <div className={props.className}>
-      <div className="header">
-        <Header />
-      </div>
-      <div className="sideList">
-        <SideList />
-      </div>
+const SidePageComponent: FC<SidePageComponentProps> = (props) => (
+  <div className={props.className}>
+    <div className="header">
+      <Header />
     </div>
-  );
-};
+    <div className="sideList">
+      <SideList />
+    </div>
+  </div>
+);
 
 const StyledSidePageComponent = styled(SidePageComponent)`
   display: flex;
@@ -38,8 +36,8 @@ const StyledSidePageComponent = styled(SidePageComponent)`
   }
 `;
 
-export const SidePage: FC<SidePageProps> = (props) => {
-  return <StyledSidePageComponent {...props} />;
-};
+export const SidePage: FC<SidePageProps> = (props) => (
+  <StyledSidePageComponent {...props} />
+);
 
 export type SidePageProps = PropsWithChildren<unknown>;
