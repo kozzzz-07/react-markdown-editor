@@ -36,6 +36,8 @@ const StyledSidePageComponent = styled(SidePageComponent)`
   }
 `;
 
-export const SidePage: FC<SidePageProps> = (props) => <StyledSidePageComponent {...props} />;
+export const SidePage: FC<SidePageProps> = (props) => (
+  <StyledSidePageComponent {...props} />
+);
 
 export type SidePageProps = PropsWithChildren<unknown>;

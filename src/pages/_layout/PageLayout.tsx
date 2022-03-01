@@ -44,6 +44,8 @@ const StyledPageComponent = styled(PageComponent)`
   }
 `;
 
-export const PageLayout: FC<PageProps> = (props) => <StyledPageComponent {...props} />;
+export const PageLayout: FC<PageProps> = (props) => (
+  <StyledPageComponent {...props} />
+);
 
 export type PageProps = PropsWithChildren<unknown>;
