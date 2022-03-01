@@ -2,11 +2,16 @@ import { ChangeEvent, FC } from "react";
 import styled from "styled-components";
 import { Article } from "../../../models/article";
 
+export type HandleTitleChange = (event: ChangeEvent<HTMLInputElement>) => void;
+export type HandleMarkdownChange = (
+  event: ChangeEvent<HTMLTextAreaElement>
+) => void;
+
 type EditorComponentProps = {
   title?: Article["title"];
   markdown?: Article["markdown"];
-  handleTitleChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleMarkdownChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  handleTitleChange?: HandleTitleChange;
+  handleMarkdownChange?: HandleMarkdownChange;
 };
 
 export const Editor: FC<EditorComponentProps> = (props) => {

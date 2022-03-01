@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { atom, useRecoilValue, useSetRecoilState } from "recoil";
+import { atom, useRecoilState, useRecoilValue } from "recoil";
 import { Article, NewArticle } from "../models/article";
 
 const articleState = atom<Article[]>({
@@ -10,23 +10,25 @@ const articleState = atom<Article[]>({
 export const useArticleState = () => useRecoilValue(articleState);
 
 export const useArticleStateMutations = () => {
-  const setState = useSetRecoilState(articleState);
+  const [articles, setState] = useRecoilState(articleState);
 
   const setNewArticle = useCallback(
     (newArticle: NewArticle) => {
-      const articles = useArticleState();
       setState([newArticle, ...articles]);
     },
-    [setState],
+    [articles]
   );
 
-  // const updateArticle = useCallback(
-  //   (article: Article) => {
-  //     const articles = useArticleState();
-  //     setState([article, ...articles]);
-  //   },
-  //   [setState]
-  // );
+  const updateArticle = useCallback(
+    (article: Article) => {
+      const orgArticle = articles.find((a) => a.id === article.id);
 
-  return { setNewArticle };
+      const filteredArticles = articles.filter((a) => a.id !== article.id);
+
+      setState([{ ...orgArticle, ...article }, ...filteredArticles]);
+    },
+    [articles]
+  );
+
+  return { setNewArticle, updateArticle };
 };

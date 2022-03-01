@@ -5,7 +5,7 @@ export type Article = {
   title?: string;
   excerpt?: string;
   detail?: string;
-  createdAt: string;
+  createdAt?: string;
   updatedAt?: string;
   markdown: string;
 };

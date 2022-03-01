@@ -1,12 +1,32 @@
 import { FC } from "react";
-import { useParams } from "react-router-dom";
-import { items } from "../../mock/data/posted";
 import { Editor } from "./_shared/Editor";
 
-export const Edit: FC = (props) => {
-  const { id } = useParams<"id">();
-
-  const { title, markdown } = items.find((item) => item.id === id)!;
-
-  return <Editor title={title} markdown={markdown} />;
+export const Edit: FC = () => {
+  return (
+    <div className={props.className}>
+      <div className="contents">
+        <Slidable
+          left={
+            <Editor
+              title={title}
+              markdown={markdown}
+              handleTitleChange={handleTitleChange}
+              handleMarkdownChange={handleMarkdownChange}
+            />
+          }
+          right={<PreView title={title} markdown={markdown} />}
+          slideDirection={slideDirection}
+        />
+      </div>
+      <div className="actions">
+        <ToggleSwitch
+          checkedChildren="📝"
+          unCheckedChildren="👁"
+          onChange={() => {
+            switchDirection();
+          }}
+        />
+      </div>
+    </div>
+  );
 };

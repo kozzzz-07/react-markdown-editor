@@ -25,7 +25,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "comma-dangle": "never",
+    "comma-dangle": ["error", "only-multiline"],
     "import/extensions": [
       "error",
       {
@@ -48,7 +48,8 @@ module.exports = {
     "react/function-component-definition": [
       2,
       {
-        namedComponents: "function-declaration",
+        namedComponents: "arrow-function",
+        unnamedComponents: "function-expression",
       },
     ],
   },

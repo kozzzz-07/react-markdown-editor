@@ -3,7 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../_shared/Button";
 
-export const Navigator: FC = (props) => {
+const StyledNavigator = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Navigator: FC = () => {
   const { id } = useParams<"id">();
   const navigate = useNavigate();
 
@@ -23,8 +28,3 @@ export const Navigator: FC = (props) => {
     </StyledNavigator>
   ) : null;
 };
-
-const StyledNavigator = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
