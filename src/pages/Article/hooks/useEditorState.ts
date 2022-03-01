@@ -7,13 +7,18 @@ export const useEditorState = () => {
 
   const handleTitleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value),
-    [title]
+    [title],
   );
 
   const handleMarkdownChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement>) => setMarkdown(e.target.value),
-    [markdown]
+    [markdown],
   );
 
-  return { title, markdown, handleTitleChange, handleMarkdownChange };
+  return {
+    title,
+    markdown,
+    handleTitleChange,
+    handleMarkdownChange,
+  };
 };

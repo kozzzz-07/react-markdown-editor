@@ -8,18 +8,16 @@ type SlidableComponentProps = PropsWithChildren<{
   slideDirection: SlideDirection;
 }>;
 
-const SlidableComponent: FC<SlidableComponentProps> = (props) => {
-  return (
-    <div className={props.className}>
-      <div className="inner">
-        <div className={`adjuster ${props.slideDirection}`}>
-          <div className="left">{props.left}</div>
-          <div className="right">{props.right}</div>
-        </div>
+const SlidableComponent: FC<SlidableComponentProps> = (props) => (
+  <div className={props.className}>
+    <div className="inner">
+      <div className={`adjuster ${props.slideDirection}`}>
+        <div className="left">{props.left}</div>
+        <div className="right">{props.right}</div>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 const StyledSlidableComponent = styled(SlidableComponent)`
   height: 100%;
@@ -73,9 +71,7 @@ const StyledSlidableComponent = styled(SlidableComponent)`
   }
 `;
 
-export const Slidable: FC<SlidableProps> = (props) => {
-  return <StyledSlidableComponent {...props} />;
-};
+export const Slidable: FC<SlidableProps> = (props) => <StyledSlidableComponent {...props} />;
 
 export type SlidableProps = PropsWithChildren<{
   left: ReactNode;

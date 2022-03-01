@@ -12,6 +12,4 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = ({
   onChange = () => {},
   disabled = false,
   ...props
-}) => {
-  return <Switch onChange={onChange} disabled={disabled} {...props} />;
-};
+}) => <Switch onChange={onChange} disabled={disabled} {...props} />;

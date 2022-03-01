@@ -10,10 +10,8 @@ export const Button: FC<ButtonComponentProps> = ({
   disabled = false,
   children,
   ...props
-}) => {
-  return (
-    <button onClick={onClick} disabled={disabled} {...props}>
-      {children}
-    </button>
-  );
-};
+}) => (
+  <button onClick={onClick} disabled={disabled} {...props}>
+    {children}
+  </button>
+);

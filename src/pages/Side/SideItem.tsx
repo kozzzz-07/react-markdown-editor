@@ -12,7 +12,9 @@ type SideItemComponentProps = PropsWithChildren<{
 }>;
 
 export const SideItemComponent: FC<SideItemComponentProps> = (props) => {
-  const { title, excerpt, createdAt, updatedAt } = props.article;
+  const {
+    title, excerpt, createdAt, updatedAt,
+  } = props.article;
 
   return (
     <div className={props.className}>
@@ -51,8 +53,6 @@ const StyledSideItemComponent = styled(SideItemComponent)`
   }
 `;
 
-export const SideItem: FC<SideItemProps> = (props) => {
-  return <StyledSideItemComponent {...props} />;
-};
+export const SideItem: FC<SideItemProps> = (props) => <StyledSideItemComponent {...props} />;
 
 export type SideItemProps = PropsWithChildren<ItemProps>;

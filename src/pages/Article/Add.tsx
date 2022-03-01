@@ -1,5 +1,7 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useArticleStateMutations } from "../../states/articleState";
 import { ToggleSwitch } from "../_shared/ToggleSwitch";
 import { useEditorState } from "./hooks/useEditorState";
 import { useSlideDirection } from "./hooks/useSlideDirection";
@@ -15,6 +17,17 @@ const AddComponent: FC<AddComponentProps> = (props) => {
   const { title, markdown, handleTitleChange, handleMarkdownChange } =
     useEditorState();
   const [slideDirection, switchDirection] = useSlideDirection();
+
+  const params = useParams<"id">();
+  const { setNewArticle } = useArticleStateMutations();
+
+  useEffect(() => {
+    setNewArticle({
+      id: params.id!,
+      createdAt: new Date().toLocaleTimeString(),
+      markdown: "",
+    });
+  }, []);
 
   return (
     <div className={props.className}>
@@ -34,8 +47,8 @@ const AddComponent: FC<AddComponentProps> = (props) => {
       </div>
       <div className="actions">
         <ToggleSwitch
-          checkedChildren={`📝`}
-          unCheckedChildren={`👁`}
+          checkedChildren="📝"
+          unCheckedChildren="👁"
           onChange={() => {
             switchDirection();
           }}
@@ -63,8 +76,6 @@ const StyledAddComponent = styled(AddComponent)`
   }
 `;
 
-export const Add: FC<AddProps> = (props) => {
-  return <StyledAddComponent {...props} />;
-};
+export const Add: FC<AddProps> = (props) => <StyledAddComponent {...props} />;
 
 export type AddProps = PropsWithChildren<unknown>;

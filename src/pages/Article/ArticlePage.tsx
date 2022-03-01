@@ -7,18 +7,16 @@ type ArticlePageComponentProps = PropsWithChildren<{
   className?: string;
 }>;
 
-const ArticlePageComponent: FC<ArticlePageComponentProps> = (props) => {
-  return (
-    <div className={props.className}>
-      <div className="markdown">
-        <Outlet />
-      </div>
-      <div className="navigator">
-        <Navigator />
-      </div>
+const ArticlePageComponent: FC<ArticlePageComponentProps> = (props) => (
+  <div className={props.className}>
+    <div className="markdown">
+      <Outlet />
     </div>
-  );
-};
+    <div className="navigator">
+      <Navigator />
+    </div>
+  </div>
+);
 
 const StyledArticlePageComponent = styled(ArticlePageComponent)`
   display: flex;
@@ -37,8 +35,8 @@ const StyledArticlePageComponent = styled(ArticlePageComponent)`
   }
 `;
 
-export const ArticlePage: FC<ArticlePageProps> = (props) => {
-  return <StyledArticlePageComponent {...props} />;
-};
+export const ArticlePage: FC<ArticlePageProps> = (props) => (
+  <StyledArticlePageComponent {...props} />
+);
 
 export type ArticlePageProps = PropsWithChildren<unknown>;

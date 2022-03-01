@@ -7,9 +7,7 @@ const articleState = atom<Article[]>({
   default: [],
 });
 
-export const useArticleState = () => {
-  return useRecoilValue(articleState);
-};
+export const useArticleState = () => useRecoilValue(articleState);
 
 export const useArticleStateMutations = () => {
   const setState = useSetRecoilState(articleState);
@@ -19,16 +17,16 @@ export const useArticleStateMutations = () => {
       const articles = useArticleState();
       setState([newArticle, ...articles]);
     },
-    [setState]
+    [setState],
   );
 
-  const updateArticle = useCallback(
-    (article: Article) => {
-      const articles = useArticleState();
-      setState([article, ...articles]);
-    },
-    [setState]
-  );
+  // const updateArticle = useCallback(
+  //   (article: Article) => {
+  //     const articles = useArticleState();
+  //     setState([article, ...articles]);
+  //   },
+  //   [setState]
+  // );
 
   return { setNewArticle };
 };

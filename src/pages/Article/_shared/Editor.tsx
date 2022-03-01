@@ -29,7 +29,7 @@ export const Editor: FC<EditorComponentProps> = (props) => {
         defaultValue={markdown}
         placeholder="Write in Markdown"
         onChange={handleMarkdownChange}
-      ></StyledMarkdown>
+      />
     </StyledEditor>
   );
 };
